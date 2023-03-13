@@ -35,8 +35,23 @@ body {
   padding: 10px;
 }
 
-img {
-  left: 0px;
-  top: 0px;
-  z-index: -1;
+button{
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+     transition: transform .7s ease-in-out;
+    margin-left:10px;
+
+  }
+
+button:hover
+{
+    transform: rotate(360deg);
+
+}
+img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
 }
