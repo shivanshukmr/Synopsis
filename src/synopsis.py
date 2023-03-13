@@ -15,11 +15,12 @@ def summarize():
         text = data.get("text", None)
         if text:
             r = summary.get_summary(text)["choices"][0]["text"]
-            print(type(r))
             return r
         if url:
             ans = get_transcript(url)
-            return summary.get_summary(ans)["choices"][0]["text"]
+            if ans:
+                return summary.get_summary(ans)["choices"][0]["text"]
+            return None
     else:
         return "Content type not supported"
 
