@@ -3,26 +3,32 @@ from flask import request
 from libs import summary
 from libs.utils import is_json
 from libs.audio_process import get_transcript
+from flask import render_template
+from flask import jsonify
 
 app = Flask(__name__)
+
+@app.route("/")
+def landing():
+    return render_template('index.html')
 
 
 @app.route("/api/summary", methods=["GET"])
 def summarize():
-    if is_json(request):
-        data = request.json
-        url = data.get("url", None)
-        text = data.get("text", None)
-        if text:
-            r = summary.get_summary(text)["choices"][0]["text"]
-            return r
-        if url:
-            ans = get_transcript(url)
-            if ans:
-                return summary.get_summary(ans)["choices"][0]["text"]
-            return None
-    else:
-        return "Content type not supported"
+    text = request.args.get('text', None)
+    url = request.args.get('text', None)
+    if text:
+        r = summary.get_summary(text)["choices"][0]["text"]
+        return jsonify(
+        text=r,
+    )
+    if url:
+        ans = get_transcript(url)
+        if ans:
+            return jsonify(
+                text=summary.get_summary(ans)["choices"][0]["text"])
+        return None
+   
 
 
 app.get("api/refactor")

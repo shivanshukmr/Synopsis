@@ -26,5 +26,6 @@ def get_transcript(url):
         audio_file = open(path, "rb")
         transcript = openai.Audio.transcribe("whisper-1", audio_file, language="en")
         open(path + ".txt", "w").write(transcript["text"])
+        # os.path.rem
         return transcript["text"]
     return None
