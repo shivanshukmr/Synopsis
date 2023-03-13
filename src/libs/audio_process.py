@@ -8,8 +8,9 @@ import os
 openai.api_key = constant.OPENAI_KEY
 
 def get_transcript(url):
-    if os.path.exists(file_name + ".txt"):
-        return open(file_name + ".txt").read()
+    file_name = get_path(url)
+    if os.path.exists(file_name + ".mp3.txt"):
+        return open(file_name + ".mp3.txt").read()
 
 
     response = requests.get(url,allow_redirects=True)
