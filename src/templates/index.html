@@ -19,7 +19,9 @@
         }
     </style>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}
+    />
+    <script src = {{ url_for('static', filename='script.js') }}></script>
   </head>
 
   <body>
@@ -43,11 +45,11 @@
                 
                 <div class="small fw-light"></div>
                 <div class="input-group">
-                    <input class="form-control border-end-0 border rounded-pill" type="text" placeholder="Enter url/text" class="form-control" id="mainInput" aria-describedby="basic-addon3">
+                    <input id="mainInput" class="form-control border-end-0 border rounded-pill" type="text" placeholder="Enter url/text" class="form-control" id="mainInput" aria-describedby="basic-addon3">
                     <!-- <span class="input-group-text"> 3</span> -->
                         <!-- <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
                         </button> -->
-                    <button type="submit">
+                    <button onclick="onpress()" id="inputButton">
                         <img src="../assets/arrow1.png" alt="buttonpng" border="0" />
                     </button>
                     </span>
