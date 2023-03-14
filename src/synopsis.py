@@ -7,10 +7,15 @@ from flask_cors import CORS, cross_origin
 from flask import render_template
 from flask import jsonify
 
+from flask import send_from_directory
 app = Flask(__name__)
 cors = CORS(app)
 
 app = Flask(__name__)
+
+@app.route('/assets/<path:path>')
+def send_report(path):
+    return send_from_directory('assets', path)
 
 @app.route("/")
 def landing():
