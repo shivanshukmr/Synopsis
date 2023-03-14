@@ -16,7 +16,9 @@ def landing():
 @app.route("/api/summary", methods=["GET"])
 def summarize():
     text = request.args.get('text', None)
-    url = request.args.get('text', None)
+    print(text)
+    url = request.args.get('url', None)
+    print(url)
     if text:
         r = summary.get_summary(text)["choices"][0]["text"]
         return jsonify(
