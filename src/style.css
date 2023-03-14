@@ -1,11 +1,10 @@
-body {
-  /* padding: 150px; */
+.body {
+    background-image: url('../assets/back_img1.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+    }
 
-  /* background-image:"assets/back_img1.png";
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover; */
-}
 .center {
   margin: auto;
   width: 60%;
