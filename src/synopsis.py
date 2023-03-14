@@ -3,11 +3,14 @@ from flask import request
 from libs import summary
 from libs.utils import is_json
 from libs.audio_process import get_transcript
+from flask_cors import CORS, cross_origin
+from libs.constant import OPENAI_KEY
 
 app = Flask(__name__)
-
+cors = CORS(app)
 
 @app.route("/api/summary", methods=["GET"])
+@cross_origin()
 def summarize():
     if is_json(request):
         data = request.json

@@ -1,1 +1,1 @@
-OPENAI_KEY = "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"
+OPENAI_KEY = open("key", "r").read()
